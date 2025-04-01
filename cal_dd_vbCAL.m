@@ -63,15 +63,9 @@ stoc = true;
 
 fprintf("Running model with best performing set of parameters\n")
 [pop,~]=IBM_dd_vbCAL(pfit(1)/10000,pfit(2),pfit(3),pfit(4),pfit(5),p,yspan,51.1,EffObs,mfp,gns,stoc);
-f1 = figure('Visible','off');
-plot(yspan,pop.Biomass(2:end),'r:o')
-savefig(f1,sprintf("results/figbio_MUSv306%03i.fig",calnum))
-f2 = figure('Visible','off');
-plot(yspan,LandObs,'ko',yspan,pop.Landings(2:end),'r:o')
-savefig(f2,sprintf("results/figlan_MUSv306%03i.fig",calnum))
 
 % save workspace
-dataname = sprintf("results/res_MUSv306%03i.mat",calnum);
+dataname = sprintf("results\res_MUSv306%03i.mat",calnum);
 save(dataname)
 
 end
