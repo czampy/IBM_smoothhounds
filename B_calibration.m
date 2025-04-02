@@ -4,8 +4,8 @@
 % management measures for commercial demersal sharks".
 
 % add required directories
-addpath("data\")
-addpath("submodels\")
+addpath("data/")
+addpath("submodels/")
 
 % set number of iterations
 n = 4;
