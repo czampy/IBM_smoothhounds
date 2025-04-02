@@ -12,7 +12,7 @@ yspan = LandObs(:,1);
 LandObs = LandObs(:,2)*2.4;
 
 % load starting set of values for parameters estimation
-strpop = readtable("starting_values\startval_dd_vbSIC.dat");
+strpop = readtable("starting_values/startval_dd_vbSIC.dat");
 pstart = [strpop.N0(calnum),strpop.B1(calnum),strpop.B2(calnum),strpop.q(calnum),strpop.sigma(calnum)];
 pstart = log(pstart);
 fprintf("Starting points loaded from line %2i: \n\n",calnum)
@@ -64,7 +64,7 @@ fprintf("Running model with best performing set of parameters\n")
     p,yspan,51.1,EffObs,mfp,gns,stoc);
 
 % save workspace
-dataname = sprintf("results\res_MUSv302%03i.mat",calnum);
+dataname = sprintf("results/res_dd_vbSIC%03i.mat",calnum);
 save(dataname)
 
 end
