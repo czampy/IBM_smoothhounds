@@ -11,7 +11,7 @@ yspan = LandObs(:,1);
 LandObs = LandObs(:,2)*2.4;
 
 % load starting set of values for parameters estimation
-strpop = readtable("starting_values\startval_di_vbCAL.dat");
+strpop = readtable("starting_values/startval_di_vbCAL.dat");
 pstart = [strpop.N0(calnum),strpop.Linf(calnum),strpop.K(calnum),strpop.q(calnum),strpop.sigma(calnum)];
 pstart = log(pstart);
 fprintf("Starting points loaded from line %2i: \n\n",calnum)
@@ -41,7 +41,7 @@ fprintf("Minimization started!\n")
 
 % compute AICc (i.e., AIC corrected for small sample size)
 n = length(LandObs);
-k = sum(pfit > 0);
+k = length(pfit);
 AIC = 2*nLL+2*k; % AIC=-2*logL+2*k;
 AICC = AIC+((2*k*(k+1))/(n-k-1));
 
@@ -63,7 +63,7 @@ fprintf("Running model with best performing set of parameters\n")
 [pop,~]=IBM_di_vbCAL(pfit(1),pfit(2),pfit(3),pfit(4),p,yspan,51.1,EffObs,mfp,gns,stoc);
 
 % save workspace
-dataname = sprintf("results\res_MUSv305%03i.mat",calnum);
+dataname = sprintf("results/res_di_vbCAL%03i.mat",calnum);
 save(dataname)
 
 end
