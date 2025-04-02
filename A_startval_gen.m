@@ -3,8 +3,10 @@
 % computes the negative log-likelihood relative to each of those starting
 % points
 
-% load sampling function
-addpath("starting_values\")
+% access data and sampling function directories
+addpath("data/")
+addpath("submodels/")
+addpath("starting_values/")
 % number of sampling points
 n = 100;
 % define ranges
@@ -35,7 +37,7 @@ summtbl.nLL = nLL;
 summtbl.delta = summtbl.nLL - min(summtbl.nLL);
 summtbl = sortrows(summtbl,"delta");
 % save results
-writetable(summtbl,"starting_values\startval_di_vbSIC.dat")
+writetable(summtbl,"starting_values/startval_di_vbSIC.dat")
 
 %% di_vbCAL
 % sample values within bounds
@@ -56,7 +58,7 @@ summtbl.nLL = nLL;
 summtbl.delta = summtbl.nLL - min(summtbl.nLL);
 summtbl = sortrows(summtbl,"delta");
 % save results
-writetable(summtbl,"starting_values\startval_di_vbCAL.dat")
+writetable(summtbl,"starting_values/startval_di_vbCAL.dat")
 
 %% dd_vbSIC
 % sample values within bounds
@@ -77,7 +79,7 @@ summtbl.nLL = nLL;
 summtbl.delta = summtbl.nLL - min(summtbl.nLL);
 summtbl = sortrows(summtbl,"delta");
 % save results
-writetable(summtbl,"starting_values\startval_dd_vbSIC.dat")
+writetable(summtbl,"starting_values/startval_dd_vbSIC.dat")
 
 %% dd_vbCAL
 % sample values within bounds
@@ -98,4 +100,4 @@ summtbl.nLL = nLL;
 summtbl.delta = summtbl.nLL - min(summtbl.nLL);
 summtbl = sortrows(summtbl,"delta");
 % save results
-writetable(summtbl,"starting_values\startval_dd_vbCAL.dat")
+writetable(summtbl,"starting_values/startval_dd_vbCAL.dat")
